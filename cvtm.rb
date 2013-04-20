@@ -1,30 +1,29 @@
 #!/usr/bin/env ruby
 # Copy/Extract video to shared directory
-
+#
+require "fileutils"
+include FileUtils
 
 unless ARGV.length == 1 
 	$stderr.puts "Usage: #{__FILE__} <path to video>"
 	exit 1
 end
 
-torrent = ARGV.first
-cwd = '/home/jkr/test/'
+cd('/home/jkr/Downloads/' + ARGV.first)
+pwd()
+
+@cwd = "/home/mediatomb/"
 
 def moveToVideoDir(torrent)
 	
-	if ( torrent =~ /rar/ )
-		Open3.popen3('unrar x *.rar')
-		puts "Extracted #{torrent} to #{cwd}"
-	end
-
-	if ( torrent =~ /mkv/ )
-		Open3.popen3('mv *.mkv #{cwd}')
-		puts "Moved #{torrent} to #{cwd}"
+	if ( file = Dir['*.rar'])
+		`unrar x #{file} #{@cwd}`
+		puts "Extracted #{file} to #{@cwd}"
 	end
 
 end
 
 
-moveToVideoDir(torrent)
+moveToVideoDir(@torrent)
 
 	
