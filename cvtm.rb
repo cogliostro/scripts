@@ -21,7 +21,7 @@ def moveToVideoDir(torrent)
 		file = Dir['*.rar']
 		puts "Extracting #{file} to #{@cwd}"
 		file.each do |fil|
-			`unrar x #{fil} #{@cwd}`
+			`unrar x "#{fil}" #{@cwd}`
 		end
 		logTorrent(file)
 		puts "Done."
@@ -31,7 +31,7 @@ def moveToVideoDir(torrent)
 		file = Dir['*.avi']
 		puts "Copying #{file} to #{@cwd}"
 		file.each do |fil|
-			`cp #{fil} #{cwd}`
+			`cp "#{fil}" #{@cwd}`
 		end
 		logTorrent(file)
 		puts "Done."
@@ -41,7 +41,7 @@ def moveToVideoDir(torrent)
 		file = Dir['*.mkv']
 		puts "Copying #{file} to #{@cwd}"
 		file.each do |fil|
-			`cp #{fil} #{cwd}`
+			`cp "#{@fil}" #{@cwd}`
 		end
 		logTorrent(file)
 		puts "Done."
