@@ -17,7 +17,8 @@ cd('/home/jkr/Downloads/' + ARGV.first)
 
 def moveToVideoDir(torrent)
 	
-	if ( file = Dir['*.rar'].any?)
+	if ( Dir['*.rar'].any? )
+		file = Dir['*.rar']
 		puts "Extracting #{file} to #{@cwd}"
 		file.each do |fil|
 			`unrar x #{fil} #{@cwd}`
@@ -26,7 +27,8 @@ def moveToVideoDir(torrent)
 		puts "Done."
 	end
 
-	if ( file = Dir['*.avi'].any? )
+	if ( Dir['*.avi'].any? )
+		file = Dir['*.avi']
 		puts "Copying #{file} to #{@cwd}"
 		file.each do |fil|
 			`cp #{fil} #{cwd}`
@@ -35,7 +37,8 @@ def moveToVideoDir(torrent)
 		puts "Done."
 	end
 
-	if ( file = Dir['*.mkv'].any? )
+	if ( Dir['*.mkv'].any? )
+		file = Dir['*.mkv']
 		puts "Copying #{file} to #{@cwd}"
 		file.each do |fil|
 			`cp #{fil} #{cwd}`
