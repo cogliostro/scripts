@@ -11,6 +11,9 @@ end
 
 torrent = ARGV.first
 
+`echo #{torrent} >> /home/jkr/.torrent_history`
+
+
 cd('/home/jkr/Downloads/' + ARGV.first)
 
 @cwd = "/home/media/"
@@ -31,7 +34,7 @@ def moveToVideoDir(torrent)
 		file = Dir['*.avi']
 		puts "Copying #{file} to #{@cwd}"
 		file.each do |fil|
-			`cp #{fil} #{cwd}`
+			`cp #{fil} #{@cwd}`
 		end
 		logTorrent(file)
 		puts "Done."
@@ -41,7 +44,17 @@ def moveToVideoDir(torrent)
 		file = Dir['*.mkv']
 		puts "Copying #{file} to #{@cwd}"
 		file.each do |fil|
-			`cp #{fil} #{cwd}`
+			`cp #{fil} #{@cwd}`
+		end
+		logTorrent(file)
+		puts "Done."
+	end
+
+	if ( Dir['*.mp4'].any? )
+		file = Dir['*.mp4']
+		puts "Copying #{file} to #{@cwd}"
+		file.each do |fil|
+			`cp #{fil} #{@cwd}`
 		end
 		logTorrent(file)
 		puts "Done."
@@ -50,10 +63,8 @@ def moveToVideoDir(torrent)
 end
 
 def logTorrent(name)
-	`echo #{name} > /home/jkr/.torrent_history`
+	`echo #{name} >> /home/jkr/.torrent_history`
 end
 
 
 moveToVideoDir(torrent)
-
-	
