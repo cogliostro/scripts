@@ -20,6 +20,14 @@ cd('/home/jkr/Downloads/' + ARGV.first)
 
 def moveToVideoDir(torrent)
 	
+	if ( File.file?(torrent) )
+		file = torrent
+		puts "Copying #file to #{@cwd}"
+		`cp #{file} #{@cwd}`	
+		logTorrent(file)
+		puts "Done."
+	end
+
 	if ( Dir['*.rar'].any? )
 		file = Dir['*.rar']
 		puts "Extracting #{file} to #{@cwd}"
