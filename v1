@@ -1,0 +1,1 @@
+/usr/bin/env WINEPREFIX="$HOME/.wine" DISPLAY=":0.0" wine explorer /desktop=eve1,2560x1440 "C:\Program Files\CCP\EVE\bin\exefile.exe"

@@ -1,0 +1,6 @@
+[0330/220744:ERROR:network_change_notifier_win.cc(111)] WSALookupServiceBegin failed with: 8
+[0330/220818:INFO:CONSOLE(0)] "The page at about:blank displayed insecure content from launcher:javascriptReady.
+," source: (1)
+[0330/222220:ERROR:network_change_notifier_win.cc(111)] WSALookupServiceBegin failed with: 8
+[0330/222323:INFO:CONSOLE(0)] "The page at about:blank displayed insecure content from launcher:javascriptReady.
+," source: (1)
